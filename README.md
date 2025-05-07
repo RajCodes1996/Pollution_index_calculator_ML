@@ -57,24 +57,15 @@ A web-based Pollution Index Calculator built with **Python**, **Django**, and **
    cd pollution-index-calculator
 
 Install requirements
-
-bash
-Copy
-Edit
 pip install -r requirements.txt
 Run the server
 
 bash
-Copy
-Edit
 python manage.py migrate
 python manage.py runserver
-Visit
-
-cpp
-Copy
-Edit
 http://127.0.0.1:8000/
+
+
 📦 Dependencies
 Django
 
@@ -91,9 +82,6 @@ seaborn
 Install all using pip install -r requirements.txt
 
 📁 Project Structure
-kotlin
-Copy
-Edit
 calculator/
 ├── data/
 │   └── pollution_data.csv
@@ -105,6 +93,7 @@ calculator/
 ├── views.py
 ├── urls.py
 └── ...
+
 🚀 Future Scope
 Real-time sensor data/API integration
 
