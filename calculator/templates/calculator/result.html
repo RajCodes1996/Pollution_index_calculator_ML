@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pollution Index Result</title>
+    <link rel="stylesheet" href="{% static 'calculator/st.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Pollution Index Prediction</h1>
+        
+        <div class="pollution-index-value">
+            <h2 style="color:orange">Your Pollution Index Value: <strong>{{ prediction }}</strong></h2>
+        </div>
+
+        <!-- Display the pollution level message -->
+        <div class="pollution-message {% if pollution_message == 'Good' %}good{% elif pollution_message == 'Moderate' %}moderate{% elif pollution_message == 'Unhealthy for Sensitive Groups' %}sensitive{% elif pollution_message == 'Unhealthy' %}unhealthy{% elif pollution_message == 'Very Unhealthy' %}very-unhealthy{% else %}hazardous{% endif %}">
+            <p style="color:red">{{ pollution_message }}</p>
+        </div>
+
+
+        <h2>Your Input Data:</h2>
+        <ul>
+            <li>PM2.5: {{ input_data.pm2_5 }}</li>
+            <li>PM1.0: {{ input_data.pm1_0 }}</li>
+            <li>PM10: {{ input_data.pm10 }}</li>
+            <li>Latitude: {{ input_data.lat }}</li>
+            <li>Longitude: {{ input_data.long }}</li>
+        </ul>
+
+        <a href="{% url 'chart' %}" class="btn">View Pollution Index Chart</a>
+
+        <h2>Graphical Representation:</h2>
+        <img src="data:image/png;base64,{{ graph }}" alt="Pollution Index Graph"/>
+
+        <a href="{% url 'index' %}">Go Back</a>
+    </div>
+    <footer>
+        <h3>© Developed by RAJARSHI-YADAV | 2024 Pollution Index Calculator | All rights reserved.</h3>
+    </footer>
+</body>
+</html>
